@@ -48,7 +48,7 @@
         <Label Grid.Column="1" Grid.Row="4" Content="Required Seats" Margin="110,0,0,0"/>
         <TextBox Grid.Column="1" Grid.Row="4" Name="txtRequiredSeats" Margin="110,0,157,10" VerticalAlignment="Bottom"/>
 
-        <Button Grid.Column="1" Grid.Row="4" Name="btnBook" Content="Book Seats" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="32" Width="115"/>
+        <Button Grid.Column="1" Grid.Row="4" Name="btnBook" Content="Book Seats" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="32" Width="115" Click="btnBook_Click"/>
 
         <Label Grid.Row="1" Grid.Column="1" Content="Movie Synopsis" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,0,0,0"/>
         <TextBlock Grid.Column="1" Grid.Row="2" Name="txtSynopsis" Margin="10" TextWrapping="Wrap"/>
