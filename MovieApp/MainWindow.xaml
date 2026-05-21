@@ -5,8 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovieApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="45*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Movie Listings" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,0,0,0"/>
+        <!--Display image of the movie, title and cast in the listbox-->
+        <ListBox Grid.Column="0" Grid.Row="2" Name="lbxMovies" Margin="10" SelectionChanged="lbxMovies_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding ImagePath}" Width="50" Height="75" Margin="5"/>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="12"/>
+                            <TextBlock Text="{Binding Cast}" FontStyle="Italic" VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Label Grid.Column="0" Grid.Row="3" Content="Quick Book" FontSize="16"/>
+        <Label Grid.Column="0" Grid.Row="4" Name="txtQuickBook" Margin="10" Content="Select movie from list above, &#xD;&#xA;choose date and tickets required"/>
+
+        <DatePicker Grid.Column="0" Grid.Row="4" Name="dtpQuickBook" Margin="281,0,10,10" VerticalAlignment="Bottom"/>
+
+        <Label Grid.Column="1" Grid.Row="4" Content="Available Seats"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" Name="txtAvailableSeats" Margin="10,0,314,10" VerticalAlignment="Bottom" TextWrapping="Wrap"/>
+
+        <Label Grid.Column="1" Grid.Row="4" Content="Required Seats" Margin="110,0,0,0"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Name="txtRequiredSeats" Margin="110,0,157,10" VerticalAlignment="Bottom"/>
+
+        <Button Grid.Column="1" Grid.Row="4" Name="btnBook" Content="Book Seats" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="32" Width="115"/>
+
+        <Label Grid.Row="1" Grid.Column="1" Content="Movie Synopsis" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,0,0,0"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Name="txtSynopsis" Margin="10" TextWrapping="Wrap"/>
+
+
+
     </Grid>
 </Window>

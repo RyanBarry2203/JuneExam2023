@@ -27,7 +27,7 @@ namespace MovieApp.Models
         // methods
         public override string ToString()
         {
-            return $"Movie ID: {MovieID}, Title: {Title}, Description: {Description}, Cast: {Cast}";
+            return $"{Title}";
         }
     }
 }

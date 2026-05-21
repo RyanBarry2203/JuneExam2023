@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieApp.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,33 @@ namespace MovieApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        MovieData db;
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            db = new MovieData();
+
+            using (db)
+            {
+                var movies = db.Movies.ToList();
+                lbxMovies.ItemsSource = movies;
+            }
+        }
+
+        private void lbxMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            var selectedMovie = lbxMovies.SelectedItem as Models.Movie;
+
+            if (selectedMovie != null)
+            {
+                txtSynopsis.Text = $"Description: {selectedMovie.Description}\nCast: {selectedMovie.Cast}";
+            }
+            }
     }
 }

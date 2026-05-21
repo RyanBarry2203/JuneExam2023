@@ -9,7 +9,7 @@ namespace MovieApp.Data
 {
     public class MovieData : DbContext
     {
-        public MovieData() : base("name=OODExam_RyanBarry"){ }
+        public MovieData() : base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=OODExam_Movies_RyanBarry;Integrated Security=True;") { }
         public DbSet<Models.Movie> Movies { get; set; }
         public DbSet<Models.Booking> Bookings { get; set; }
     }
